@@ -1,0 +1,141 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Lesson9. js50_1</title>
+
+    <style>
+      body {
+        animation: opac1 1s;
+      }
+      @keyframes opac1 {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      #box {
+        width: 550px;
+        height: 400px;
+        margin: 0 auto;
+        border: 1px solid blue;
+        transition: 0.3s;
+      }
+      #box:hover {
+        filter: brightness(80%);
+      }
+      nav {
+        width: 550px;
+        margin: 0 auto;
+        position: relative;
+        top: -240px;
+      }
+      #before,
+      #next {
+        width: 70px;
+        /* border: 1px solid blue; */
+        /* position: relative; */
+      }
+      #before {
+        float: left;
+      }
+      #next {
+        float: right;
+      }
+      .material-icons {
+        font-size: 70px;
+        color: #fff;
+      }
+      .material-icons:hover {
+        transition: 0.6s;
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="javascript:link()"
+      ><div id="box"><img id="pic1" src="images/minsk1.jpg" alt="" /></div
+    ></a>
+
+    <nav>
+      <div id="before">
+        <a href="javascript:bef()"
+          ><span class="material-icons"> navigate_before </span></a
+        >
+      </div>
+
+      <div id="next">
+        <a href="javascript:nex()"
+          ><span class="material-icons"> navigate_next </span></a
+        >
+      </div>
+    </nav>
+    <script>
+      let n = 0,
+        p = 5;
+      let to = [
+        "https://tut.by",
+        "https://onliner.by",
+        "https://google.by",
+        "https://yandex.by",
+        "https://mail.ru",
+        "https://ya.ru",
+      ];
+      // let to = { 1:"https://tut.by", 2:"https://onliner.by",};
+      let images = [
+        "img1b.jpg",
+        "img2b.jpg",
+        "img3b.jpg",
+        "img4b.jpg",
+        "img5b.jpg",
+        "img6b.jpg",
+      ];
+      function start() {
+        if (n > p) {
+          n = 0;
+        }
+        box.innerHTML = `<img id="pic1" src="images/${images[n]}" alt=""
+    />`;
+        pic1.style.animation = "opac1 1s";
+        timerId = setTimeout(start, 1500);
+        n++;
+      }
+      function link() {
+        window.location.href = to[n];
+      }
+      function stop() {
+        clearTimeout(timerId);
+      }
+      function nex(){
+        stop();
+        start();
+      }
+      function bef(){
+        stop();
+        n--;
+        n--;
+        if (n<0){
+          n=p;
+        }
+        start();
+      }
+      addEventListener("load", () => {
+        timerId = setTimeout(start, 0);
+      });
+      document.getElementById("box").addEventListener("mouseover", stop);
+      document
+        .getElementById("box")
+        .addEventListener(
+          "mouseout",
+          () => (timerId = setTimeout(start, 1500))
+        );
+    </script>
+  </body>
+</html>

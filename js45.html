@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9. js45</title>
+    <style>
+
+        p:nth-child(even){
+            color:rgba(233, 37, 168, 0.308);
+
+        }
+    </style>
+</head>
+<body>
+    <!-- document.querySelectorAll -->
+    <!-- p*10{Параграф $} -->
+    <p>Параграф 1</p>
+    <p>Параграф 2</p>
+    <p>Параграф 3</p>
+    <p>Параграф 4</p>
+    <p>Параграф 5</p>
+    <p>Параграф 6</p>
+    <p>Параграф 7</p>
+    <p>Параграф 8</p>
+    <p>Параграф 9</p>
+    <p>Параграф 10</p>
+    <button id="but" onclick="change()">Изменить</button>
+    <script>    
+    function change(){
+        let pars_even = document.querySelectorAll("p:nth-child(even)");
+        for (let i = 0; i < pars_even.length; i++) {
+            pars_even[i].innerHTML=`Абзац ${i+1}`;
+            pars_even[i].style.cssText = `
+            border: 1px solid #salmon;
+            background : green;
+            color: white;
+            width: 100px;
+            `;
+            pars_even[i].style.color = "red";
+
+            
+        } 
+
+    }
+    
+    </script>
+</body>
+</html>
