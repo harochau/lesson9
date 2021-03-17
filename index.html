@@ -7,7 +7,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <title>Lesson9. js50_1</title>
+    <title>Lesson9. Homework 9.2</title>
 
     <style>
       body {
@@ -22,7 +22,8 @@
         }
       }
       #box {
-        width: 550px;
+        /* width: 550px; */
+        width: 400px;
         height: 400px;
         margin: 0 auto;
         border: 1px solid blue;
@@ -81,21 +82,21 @@
       let n = 0,
         p = 5;
       let to = [
-        "https://tut.by",
-        "https://onliner.by",
-        "https://google.by",
-        "https://yandex.by",
-        "https://mail.ru",
-        "https://ya.ru",
+        'https://tut.by',
+        'https://onliner.by',
+        'https://google.by',
+        'https://yandex.by',
+        'https://mail.ru',
+        'https://ya.ru',
       ];
       // let to = { 1:"https://tut.by", 2:"https://onliner.by",};
       let images = [
-        "img1b.jpg",
-        "img2b.jpg",
-        "img3b.jpg",
-        "img4b.jpg",
-        "img5b.jpg",
-        "img6b.jpg",
+        'img1b.jpg',
+        'img2b.jpg',
+        'img3b.jpg',
+        'img4b.jpg',
+        'img5b.jpg',
+        'img6b.jpg',
       ];
       function start() {
         if (n > p) {
@@ -103,7 +104,7 @@
         }
         box.innerHTML = `<img id="pic1" src="images/${images[n]}" alt=""
     />`;
-        pic1.style.animation = "opac1 1s";
+        pic1.style.animation = 'opac1 1s';
         timerId = setTimeout(start, 1500);
         n++;
       }
@@ -113,27 +114,27 @@
       function stop() {
         clearTimeout(timerId);
       }
-      function nex(){
+      function nex() {
         stop();
         start();
       }
-      function bef(){
+      function bef() {
         stop();
         n--;
         n--;
-        if (n<0){
-          n=p;
+        if (n < 0) {
+          n = p;
         }
         start();
       }
-      addEventListener("load", () => {
+      addEventListener('load', () => {
         timerId = setTimeout(start, 0);
       });
-      document.getElementById("box").addEventListener("mouseover", stop);
+      document.getElementById('box').addEventListener('mouseover', stop);
       document
-        .getElementById("box")
+        .getElementById('box')
         .addEventListener(
-          "mouseout",
+          'mouseout',
           () => (timerId = setTimeout(start, 1500))
         );
     </script>
